@@ -9,13 +9,9 @@
 ##############################################
 
 function xdot = threeBodyForceFunction (x, t)
-  global g m N;
+  global g mx my mz N;
   idx = [ 1  2  3;  4  5  6;  7  8  9];
   idx = idx';
-	N = 3;
-  mx = 1;
-	my = 1;
-  mz = 1;
   idxV = idx + 3*N;
 
   xdot = zeros (3*N,1);

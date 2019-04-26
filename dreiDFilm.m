@@ -24,16 +24,12 @@ function dreiDFilm (x, y, z, t, m)
   z_von = min (komp);
   z_bis = max (komp);
   z_rand = bf * (z_bis - z_von);
-  z_von -= z_rand
-  z_bis += z_rand
+  z_von -= z_rand;
+  z_bis += z_rand;
 
   for n = 1:length(t) 
     axis([x_von x_bis y_von y_bis, z_von, z_bis]);
     hold on;
-    plot3 (x(:,1)(n), x(:,2)(n), x(:,3)(n), 'or', 'markersize', m(1), "markerfacecolor", "r");
-    plot3 (y(:,1)(n), y(:,2)(n), y(:,3)(n), 'og', 'markersize', m(2), "markerfacecolor", "g");
-    plot3 (z(:,1)(n), z(:,2)(n), z(:,3)(n), 'ob', 'markersize', m(2), "markerfacecolor", "b");
-    grid on;
     if n-schwanz > 0
       plot3 (x(:,1)(n-schwanz), x(:,2)(n-schwanz), x(:,3)(n-schwanz), ...
            'ow', 'markersize', m(1), "markerfacecolor", "w");
@@ -42,12 +38,15 @@ function dreiDFilm (x, y, z, t, m)
       plot3 (z(:,1)(n-schwanz), z(:,2)(n-schwanz), z(:,3)(n-schwanz), ...
            'ow', 'markersize', m(3), "markerfacecolor", "w");
     endif
-#{
-#}
-#   Filmdauer bestimmen:
+    plot3 (x(:,1)(n), x(:,2)(n), x(:,3)(n), 'or', 'markersize', m(1), "markerfacecolor", "r");
+    plot3 (y(:,1)(n), y(:,2)(n), y(:,3)(n), 'og', 'markersize', m(2), "markerfacecolor", "g");
+    plot3 (z(:,1)(n), z(:,2)(n), z(:,3)(n), 'ob', 'markersize', m(3), "markerfacecolor", "b");
+    grid on;
+    #   Filmdauer bestimmen:
     pause (min (.1, 5 / length(t)) );
-#    clf;
   end
 
-#  close;
+#{
+#}
+  close;
 endfunction
